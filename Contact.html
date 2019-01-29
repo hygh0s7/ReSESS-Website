@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="Stylesheet.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="project.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+   function changeDirections() {
+            var element = document.getElementById("selectBox");
+            var selectedValue = element.options[element.selectedIndex].value;
+            var x = document.getElementById("demo");
+
+            if (selectedValue == "1") {
+                x.innerHTML = "Staten Island: Cross the Verrazano Bridge to the Brooklyn-Queens Expressway. Take the Belt Parkway to the Brooklyn-Queens Expressway and get off at the Atlantic Avenue exit. Turn right on Atlantic; continue for five blocks to Smith Street. Make a left onto Smith; continue across Fulton where Smith becomes Jay. ";
+            } else if (selectedValue == "2") {
+                x.innerHTML = "B26, B37, B38, B41, B51, B52, B54, B61, B67 or B75.";
+            } else if (selectedValue == "3") {
+                x.innerHTML = "2,3,4,5,A,C,F, and R Trains";
+}}
+<style>
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.mapClass {
+	border-radius: 20px;
+    padding: 50px 50px 50px 50px;
+	height: 400px;
+	width: 100%;
+
+  margin-right: 10px;
+	float:right;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: lightgray;
+    padding: 20px;
+	height: 100%;
+	width: 100%;
+}
+*{
+    box-sizing: border-box;
+}
+
+  .column {
+    float: left;
+    width:40%;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+  .columnMID {
+    float: left;
+    width:20%;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+@media only screen and (max-width: 700px) {
+    .column {
+        width:100%;
+      }
+    .columnMID {
+        width:100%;
+      }}
+
+
+.show {display:block;}
+
+</style>
+</head>
+<body>
+<img src="Images/logo2.png">
+<div id="nav">
+<ul>
+  <li><a href="./Home.html">Home</a></li>
+  <li><a href="./Menu.html">Menu</a></li>
+  <li><a href="./Gallery.html">Gallery</a></li>
+  <li><a href="./Reservations.html">Reservations</a></li>
+  <li><a class="active" href="./Contact.html">Contact</a></li>
+
+</ul>
+</div>
+<div class="row">
+  <div class="column" style=" display:block">
+   <h2>Contact Us<hr /></h2>
+
+<div class="container">
+<form action="mailto:justineginchereau@gmail.com" method="post" enctype="text/plain">
+    <label for="name">First Name</label>
+    <input type="text" id="name" name="name" placeholder="Your name..">
+
+    <label for="email">E-mail</label>
+    <input type="text" id="email" name="email" placeholder="Your e-mail..">
+
+    <label for="subject">Subject</label>
+    <select id="subject" name="subject">
+          <option value="about">About Us</option>
+          <option value="menu">Menu</option>
+          <option value="reservations">Reservations</option>
+          <option value="hours">Hours</option>
+          <option value="location">Location</option>
+          <option value="other">Other</option>
+        </select>
+
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+  </div>
+  <div class="columnMID" style=" text-align:center; display:block">
+    <h2>Hours<hr /></h2>
+    <p><h4>RESTAURANT</h4><br/>
+      Wed - Fri: 5pm-11pm <br/>
+Sat - Sun: 11am-Midnight<br/>
+<br/>
+<h4>LOUNGE</h4><br/>
+Mon - Fri: 3pm-Midnight<br/>
+Sat - Sun: 10am-1am<br/><br/>
+<h4>PARKING</h4><br/>
+<i>Street parking, in front of 123 Broadway, is available from 7PM – 2AM. Street parking is also available on Morris St. from 7PM-7AM.
+ </i></p>
+  </div>
+  <div class="column" style=" display:block">
+    <h2>Location<hr /></h2>
+<div class="mapClass" id="map"></div>
+<script>
+function myMap() {
+    var mapOptions = {
+        center: new google.maps.LatLng(40.6985327, -73.9891794),
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+
+    }
+
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	var marker = new google.maps.Marker({position:mapOptions.center});
+		marker.setMap(map);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCR2g3WASs_d4Xa5ht3MOTnIgt3uR1zFdg&callback=myMap"></script>
+
+<div style="text-align:center; margin-top:20px"><br />
+  <h4 style="padding-top: 10px; color:transparent">ADDRESS</h4>206 Jay St<br />
+Brooklyn, NY 11201<br/>718-260-5410</div><br/>
+
+  <select id="selectBox" onchange="changeDirections()" style="width:200px">
+        <option value="1">Car</option>
+        <option value="2">Bus</option>
+        <option value="3">Subway</option>
+
+  </select>
+      <div id="demo"></div>
+
+  </div>
+
+
+
+<div id="footer">
+<br />
+<hr />
+<br />
+<a href="https://www.facebook.com" class="sm"><img style="padding-right:5px" src="Images/facebook.png"></a>
+<a href="https://www.twitter.com" class="sm"><img style="padding-right:5px" src="Images/twitter.png"></a>
+<a href="https://www.instagram.com" class="sm"><img style="padding-right:5px" src="Images/instagram.png"></a>
+<sup style="font-weight:bold">206 Jay St &#11044 Brooklyn, NY, 11201 &#11044 718-260-5410</sup> </div>
+</body>
+</html>

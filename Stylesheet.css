@@ -1,0 +1,100 @@
+/* ---------------------------------------------------All Style-------------------------------------------->*/
+body, html {
+  height: 100%;
+  margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+  color: blue ;
+  background-color: lightblue;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+	width:100%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+
+.active {
+    background-color: #4CAF50;
+}
+.sm:hover {
+    opacity: 0.7;
+}
+.footer{
+    font-family: Arial, Helvetica, sans-serif;
+  color: #C86C17;
+  font-weight:bold;
+  float:bottom;
+}
+/* ---------------------------------------------------Gallery Style-------------------------------------------->*/
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+.tabcontent {
+  color: #C86C17;
+  display: none;
+  width:100%;
+
+}
+
+table {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height:100%;
+  table-layout: fixed;
+  display:block;
+}
+
+.box {
+    float: left;
+
+    overflow: hidden;
+    margin: 0 10px 0 0;
+	max-height:100%; max-width:100%;
+
+}
+
+.box:hover {
+
+    transform: scale(1.5);
+     position: relative;
+}
+
+
+.galleryRow {
+ max-width: 100%;
+  position: center;
+
+}
